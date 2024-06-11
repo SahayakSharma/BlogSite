@@ -7,23 +7,22 @@ const Navbar = () => {
     const [fontcol,setFontcol]=useState<string>('hsl(0deg 0% 3.92%)')
     const [shadowcol,setshadowcol]=useState<string>('hsl(0deg 0% 3.92%)')
     useEffect(()=>{
-        if(theme==='#ffffff'){
-            setFontcol('hsl(0deg 0% 3.92%)')
-            setshadowcol(' 2px 0.2px hsl(0deg 0% 3.92%)')
-        }
-        else{ 
-            setFontcol('#ffffff')
-            setshadowcol('2px 0.2px #ffffff')
-        }
-    },[theme])
+      
+    },[])
 
     const handlethemechange=()=>{
-        if(theme==='#ffffff') setTheme('hsl(0deg 0% 3.92%)')
-        else setTheme('#ffffff')
+        if(theme.bgcolor==='hsl(0deg 0% 3.92%)'){
+        setTheme({bgcolor:"#ffffff",fontcolor:'hsl(0deg 0% 3.92%)',shadow:'0.2px 0.2px hsl(0deg 0% 3.92%)'})
+        localStorage.setItem('theme',JSON.stringify({bgcolor:"#ffffff",fontcolor:'hsl(0deg 0% 3.92%)',shadow:'0.2px 0.2px hsl(0deg 0% 3.92%)'}))
+      }
+      else{
+        setTheme({bgcolor:'hsl(0deg 0% 3.92%)',fontcolor:'#ffffff',shadow:'0.2px 0.2px #ffffff'})
+        localStorage.setItem('theme',JSON.stringify({bgcolor:'hsl(0deg 0% 3.92%)',fontcolor:'#ffffff',shadow:'0.2px 0.2px #ffffff'}))
+      }
     }
   return (
-    <div className='w-full h-[70px] flex justify-end items-center' style={{backgroundColor:theme, boxShadow:shadowcol}}>
-      <button className='w-[120px] h-[50px] border-2 rounded-md mx-[20px] text-[15px] font-bold' style={{backgroundColor:theme,color:fontcol,borderColor:fontcol}} onClick={handlethemechange}>Toggle theme</button>
+    <div className='w-full h-[70px] flex justify-end items-center' style={{backgroundColor:theme.bgcolor, boxShadow:theme.shadow}}>
+      <button className='w-[120px] h-[50px] border-2 rounded-md mx-[20px] text-[15px] font-bold' style={{backgroundColor:theme,color:theme.fontcolor,borderColor:theme.fontcolor}} onClick={handlethemechange}>Toggle theme</button>
     </div>
   )
 }

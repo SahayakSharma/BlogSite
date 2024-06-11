@@ -13,9 +13,9 @@ export default function Home() {
   
   console.log(theme)
   return (
-    <div className="w-full h-screen" style={{backgroundColor:theme}}>
+    <div className="w-full h-screen" style={{backgroundColor:theme.bgcolor}}>
       <Navbar/>
-      <button className="w-[200px] h-[50px] border-2 border-black rounded-md mx-auto my-[50px]" onClick={()=>router.push("/signin")}>Signin</button>
+      <button className="w-[200px] h-[50px] border-2 rounded-md ml-[600px] mt-[200px] font-bold text-[20px] my-[50px]" onClick={()=>router.push("/signin")} style={{borderColor:theme.fontcolor,color:theme.fontcolor}}>Signin</button>
 
 
 
