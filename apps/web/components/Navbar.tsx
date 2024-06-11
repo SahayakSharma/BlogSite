@@ -1,8 +1,12 @@
 'use client'
 import React,{useEffect, useState} from 'react'
 import { useTheme } from '../context/themeContext'
-
+import { MdWbSunny } from "react-icons/md";
+import { useAuth } from '../context/authContext';
+import { useRouter } from 'next/navigation';
 const Navbar = () => {
+    const router=useRouter()
+    const {user}=useAuth()
     const {theme,setTheme}=useTheme()
     const [fontcol,setFontcol]=useState<string>('hsl(0deg 0% 3.92%)')
     const [shadowcol,setshadowcol]=useState<string>('hsl(0deg 0% 3.92%)')
@@ -21,8 +25,28 @@ const Navbar = () => {
       }
     }
   return (
-    <div className='w-full h-[70px] flex justify-end items-center' style={{backgroundColor:theme.bgcolor, boxShadow:theme.shadow}}>
-      <button className='w-[120px] h-[50px] border-2 rounded-md mx-[20px] text-[15px] font-bold' style={{backgroundColor:theme,color:theme.fontcolor,borderColor:theme.fontcolor}} onClick={handlethemechange}>Toggle theme</button>
+    <div className='w-full px-[20px] h-[70px] flex justify-between text-white items-center' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor, boxShadow:theme.shadow}}>
+      <ul className='flex'>
+        <li className='px-[10px] font-bold cursor-pointer'>Home</li>
+        <li className='px-[10px] font-bold cursor-pointer'>About</li>
+        <li className='px-[10px] font-bold cursor-pointer'>Blogs</li>
+        
+      </ul>
+      <ul className='flex items-center'>
+        <li><MdWbSunny className='w-[30px] h-[30px] mx-[20px] cursor-pointer' onClick={handlethemechange}/></li>
+        <li>
+        {user?(
+            <div className='px-[10px] flex items-center'>
+              <p className='text-[15px] font-bold px-[20px]'>{user.displayName}</p>
+              <img className='w-[40px] h-[40px] rounded-full cursor-pointer' src={user.photoURL} alt="image here" />
+            </div>
+        ):(
+          <div onClick={()=>router.push('/signin')}>
+            <h1 className='px-[20px] font-bold text-[20px] cursor-pointer'>Login</h1>
+          </div>
+        )}
+        </li>
+      </ul>
     </div>
   )
 }
