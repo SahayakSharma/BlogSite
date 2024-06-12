@@ -4,7 +4,7 @@ import { Authentication } from '../../../../Firebase/auth'
 import { useAuth } from '../../../../context/authContext'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { RiLoader5Line } from "react-icons/ri";
+import { LuLoader2 } from "react-icons/lu";
 import { useTheme } from '../../../../context/themeContext'
 import { useActive } from '../../../../context/activeContext'
 import {Navbar,Taskbar,Dashboard,Popular,CreateNewBlog,Feedback,YourBlogs} from '../../../../components'
@@ -30,8 +30,8 @@ const page = () => {
       })
   return (
     !user?(
-        <div style={{backgroundColor:theme.bgcolor}}>
-            <RiLoader5Line className="w-[30px] h-[30px]  animate-spin mx-auto mt-[200px]" />
+        <div className='w-full h-screen flex justify-center items-center' style={{backgroundColor:theme.bgcolor}}>
+            <LuLoader2 className="w-[30px] h-[30px] animate-spin" />
         </div>
     ):(
         <div className='w-full h-screen overflow-hidden' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor,borderColor:theme.fontcolor}}>

@@ -17,11 +17,11 @@ const Navbar = () => {
     const handlethemechange=()=>{
         if(theme.bgcolor==='hsl(0deg 0% 3.92%)'){
         setTheme({bgcolor:"#ffffff",fontcolor:'hsl(0deg 0% 3.92%)',shadow:'0.2px 0.2px hsl(0deg 0% 3.92%)'})
-        localStorage.setItem('theme',JSON.stringify({bgcolor:"#ffffff",fontcolor:'hsl(0deg 0% 3.92%)',shadow:'0.2px 0.2px hsl(0deg 0% 3.92%)'}))
+        localStorage.setItem('themeforblog',JSON.stringify({bgcolor:"#ffffff",fontcolor:'hsl(0deg 0% 3.92%)',shadow:'0.2px 0.2px hsl(0deg 0% 3.92%)'}))
       }
       else{
         setTheme({bgcolor:'hsl(0deg 0% 3.92%)',fontcolor:'#ffffff',shadow:'0.2px 0.2px #ffffff'})
-        localStorage.setItem('theme',JSON.stringify({bgcolor:'hsl(0deg 0% 3.92%)',fontcolor:'#ffffff',shadow:'0.2px 0.2px #ffffff'}))
+        localStorage.setItem('themeforblog',JSON.stringify({bgcolor:'hsl(0deg 0% 3.92%)',fontcolor:'#ffffff',shadow:'0.2px 0.2px #ffffff'}))
       }
     }
   return (
