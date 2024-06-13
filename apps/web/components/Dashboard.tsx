@@ -1,10 +1,12 @@
+
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAuth } from '../context/authContext'
 
 const Dashboard = () => {
+ 
   const {user}=useAuth()
-
+  
   return (
     <div className='w-[100%] h-[100%] py-[20px] px-[70px]' style={{userSelect:'none'}}>
       <div className='w-[100%] h-[200px] flex items-center'>
@@ -21,6 +23,8 @@ const Dashboard = () => {
       
     </div>
   )
-}
-
-export default Dashboard
+  }
+  
+  export default Dashboard
+  
+  export const runtime = 'edge'
