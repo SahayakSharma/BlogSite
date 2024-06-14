@@ -1,14 +1,56 @@
 
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useAuth } from '../context/authContext'
-
+import { set } from 'firebase/database'
+import { MdDeleteForever } from "react-icons/md";
+import { useTheme } from '../context/themeContext';
+import { SlBasket } from "react-icons/sl";
 const Dashboard = () => {
- 
+ const {theme}=useTheme()
   const {user}=useAuth()
+  const [userposts,setUserposts]=useState([])
+  let number=0;
+
+  const handlepostdelete=async(id:any)=>{
+    console.log('ek bar chala')
+      const response=await fetch('api/blogs',{
+        method:'DELETE',
+        headers:{
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({
+          id:id
+        })
+      })
+      alert('Post Deleted Successfully')
+      // setUserposts([])
+      
+      
+  }
+
+
+  useEffect(()=>{
+    async function getposts(){
+      const response=await fetch('/api/blogs',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'to_get':user.uid
+        },
+      })
+      if(response.ok){
+        const data=await response.json()
+        setUserposts(data)
+        
+      }
+      
+    }
+    getposts()
+  },[])
   
   return (
-    <div className='w-[100%] h-[100%] py-[20px] px-[70px]' style={{userSelect:'none'}}>
+    <div className='w-[100%] h-[100%] py-[20px] px-[70px] overflow-auto' style={{userSelect:'none'}}>
       <div className='w-[100%] h-[200px] flex items-center'>
         <img src={user.photoURL} className='w-[150px] h-[150px] rounded-full' alt="" />
         <div>
@@ -16,10 +58,35 @@ const Dashboard = () => {
         <p className='px-[75px] text-[12px]'>{user.email}</p>
         </div>
       </div>
-      <div className='w-[100%] h-[300px] py-[50px]'>
+      <div className='w-[100%] h-[200px] pt-[50px]'>
         <p className='text-[15px] py-[10px]'>Total Blogs Published  : 0</p>
         <p className='text-[15px] py-[10px]'>Total Views Received  : 0</p>
       </div>
+      {
+        userposts.length===0?(
+          <>
+          <SlBasket className='w-[150px] h-[150px] mx-auto'/>
+          <p className='text-center font-bold text-[20px] py-[20px]'>You Have Not Posted Yet</p>
+          </>
+        ):(
+          <div>
+            {
+              userposts.map((post:any)=>{
+                number=number+1
+                return(
+                  <div key={post.id} className='w-[100%] h-[60px] flex items-center border-t-[1px]' style={number===1?{borderTop:'0px'}:{borderColor:theme.fontcolor}}>
+                    <div className='w-[5%] h-[100%] border-r-[1px] px-[10px] items-center flex text-[20px]' style={{borderColor:theme.fontcolor}}><h1>{number}</h1></div>
+                    <div className='w-[70%] h-[100%] border-r-[1px] px-[20px] items-center flex text-[15px] cursor-pointer' style={{borderColor:theme.fontcolor}}><h1>{post.title}</h1></div>
+                    <div className='w-[20%] h-[100%] border-r-[1px] px-[20px] items-center justify-center flex' style={{borderColor:theme.fontcolor}}>{new Date(post.createdAt).toLocaleDateString()}</div>
+                    <div className='w-[5%] h-[100%] px-[10px] items-center flex justify-center' onClick={()=>handlepostdelete(post.id)}><MdDeleteForever className='w-[20px] h-[20px] cursor-pointer' /></div>
+                  </div>
+                )
+              })
+            }
+          </div>
+        )
+      }
+
       
     </div>
   )

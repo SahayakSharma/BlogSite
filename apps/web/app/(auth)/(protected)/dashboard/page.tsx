@@ -34,7 +34,7 @@ const page = () => {
             <LuLoader2 className="w-[30px] h-[30px] animate-spin" />
         </div>
     ):(
-        <div className='w-full h-screen overflow-hidden' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor,borderColor:theme.fontcolor}}>
+        <div className='w-full h-screen ' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor,borderColor:theme.fontcolor}}>
             <Navbar/>
             <div className='w-[100%] h-[100%] flex'>
                 <Taskbar/>

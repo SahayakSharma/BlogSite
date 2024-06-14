@@ -15,6 +15,7 @@ datasource db {
 
 model Posts{
   id        Int      @id @default(autoincrement())
+  authorid  String
   title     String
   content   String
   author   String
