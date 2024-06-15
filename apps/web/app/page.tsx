@@ -5,18 +5,45 @@ import { useTheme } from "../context/themeContext";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useRouter } from "next/navigation";
+import { set } from "firebase/database";
+import { useState } from "react";
+import BlogPost from "../components/BlogPost";
 
 
 export default function Home() {
-  const {theme,setTheme}=useTheme()
+  const [blogs,setBlogs]=useState([])
+  const {theme}=useTheme()
   const router=useRouter()
+
+  useEffect(()=>{
+    async function getposts(){
+      const response=await fetch('/api/blogs',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'to_get':'all'
+        },
+      })
+      if(response.ok){
+        const data=await response.json()
+        setBlogs(data)  
+      }
+    }
+    getposts()
+  },[])
   
   console.log(theme)
   return (
     <div className="w-full h-screen" style={{backgroundColor:theme.bgcolor}}>
       <Navbar/>
-      <button className="w-[200px] h-[50px] border-2 rounded-md ml-[600px] mt-[200px] font-bold text-[20px] my-[50px]" onClick={()=>router.push("/signin")} style={{borderColor:theme.fontcolor,color:theme.fontcolor}}>Signin</button>
-
+      {
+        blogs.map((blog:any)=>{
+          return(
+            <BlogPost key={blog.id} title={blog.title} id={blog.id} content={blog.content} author={blog.author} createdAt={blog.createdAt} />
+          )
+        })
+      }
+      
 
 
     </div>
