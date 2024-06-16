@@ -9,8 +9,7 @@
     "generate:prisma": "npx prisma generate",
     "postinstall": "npm run generate:prisma",
     "lint": "next lint"
-    // "build": "next build",
-    // "start": "next start",
+    
   },
   "dependencies": {
     "@repo/ui": "*",
