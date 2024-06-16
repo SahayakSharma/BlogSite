@@ -2,7 +2,7 @@
   "name": "blogsite",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "npx prisma generate && turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "test": "jest --coverage",
