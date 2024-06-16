@@ -21,4 +21,7 @@ model Posts{
   author   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  likecounter Int @default(0)
+  viewcounter Int @default(0)
+
 }

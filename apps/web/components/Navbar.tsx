@@ -25,7 +25,7 @@ const Navbar = () => {
       }
     }
   return (
-    <div className='w-full px-[20px] h-[70px] flex justify-between text-white items-center' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor, boxShadow:theme.shadow}}>
+    <div className='w-full px-[20px] h-[70px] flex justify-between text-white items-center' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor, boxShadow:theme.shadow,userSelect:'none'}}>
       <ul className='flex'>
         <li className='px-[10px] font-bold cursor-pointer'>Home</li>
         <li className='px-[10px] font-bold cursor-pointer'>About</li>
@@ -33,6 +33,9 @@ const Navbar = () => {
         
       </ul>
       <ul className='flex items-center'>
+        <li className='mx-[20px] items-center'><p className='rounded-md p-[10px] cursor-pointer' style={{ backgroundColor:
+          theme.bgcolor==='hsl(0deg 0% 3.92%)'? '#1b1b1b':'#e0e0e0'
+        }} onClick={()=>router.replace('/dashboard')}>Go to Console</p></li>
         <li><MdWbSunny className='w-[30px] h-[30px] mx-[20px] cursor-pointer' onClick={handlethemechange}/></li>
         <li>
         {user?(

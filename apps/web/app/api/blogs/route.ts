@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { PrismaClient } from '@prisma/client'
 import { headers } from 'next/headers'
+import { parse } from 'path'
 const prisma = new PrismaClient()
 
 export const GET = async (req: Request, res: Response) => {
@@ -55,23 +56,22 @@ export const DELETE = async (req: Request) => {
 
 }
 
-export const PUT = async (req: NextApiRequest, res: NextApiResponse) => {
+export const PUT = async (req: Request, res: Response) => {
     console.log('updatepost')
-    const { id,authorid,author, title, content } = req.body;
+    const a=headers()
+    const toget=a.get('postid')
+    const toupdate=a.get('toupdate')
+    const b=await req.json()
+    const postid=parseInt(toget)
+    const { viewcounter,likecounter } = b;
     const post = await prisma.posts.update({
         where: {
-            id
+            id:postid
         },
-        data: {
-            authorid,
-            title,
-            content,
-            author,
-        }
+        data: toupdate==='view'?{viewcounter}:{likecounter}
+            
     });
-    res.json(post);
-
-
+    return Response.json(post);
 }
 
 

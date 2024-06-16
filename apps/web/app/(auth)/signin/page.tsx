@@ -41,9 +41,9 @@ const page = () => {
       }, [user]);
   return (
     loader?(
-        <>
-            <RiLoader5Line className="w-[30px] h-[30px]  animate-spin mx-auto mt-[200px]" />
-        </>
+        <div className='w-full h-screen pt-[200px]' style={{backgroundColor:theme.bgcolor}}>
+            <RiLoader5Line className="w-[30px] h-[30px]  animate-spin mx-auto" />
+        </div>
     ):(
         <div className='w-full h-screen flex justify-center items-center' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor}} >
             <div className='w-[350px] h-[400px] flex flex-col justify-between items-center py-[20px]'>

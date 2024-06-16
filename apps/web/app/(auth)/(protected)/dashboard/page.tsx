@@ -1,11 +1,10 @@
 'use client'
-import React, { use } from 'react'
-import { Authentication } from '../../../../Firebase/auth'
+import React from 'react'
 import { useAuth } from '../../../../context/authContext'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { LuLoader2 } from "react-icons/lu";
 import { useTheme } from '../../../../context/themeContext'
+import { RiLoader5Line } from "react-icons/ri"; 
 import { useActive } from '../../../../context/activeContext'
 import {Navbar,Taskbar,Dashboard,Popular,CreateNewBlog,Feedback,YourBlogs} from '../../../../components'
 const page = () => {
@@ -14,13 +13,7 @@ const page = () => {
     const {theme}=useTheme()
     const {user}=useAuth()
     const router=useRouter()
-    const handlesignout=()=>{
-        const auth=Authentication.getInstance()
-        auth.signout().then((res)=>{
-            if(res.error) console.log(res.error.message)
-            else console.log(res.res)
-        })
-    }
+    
     useEffect(()=>{
         if(!user){
             console.log(user)
@@ -30,8 +23,8 @@ const page = () => {
       })
   return (
     !user?(
-        <div className='w-full h-screen flex justify-center items-center' style={{backgroundColor:theme.bgcolor}}>
-            <LuLoader2 className="w-[30px] h-[30px] animate-spin" />
+        <div className='w-full h-screen pt-[200px]' style={{backgroundColor:theme.bgcolor}}>
+            <RiLoader5Line className="w-[30px] h-[30px]  animate-spin mx-auto" />
         </div>
     ):(
         <div className='w-full h-screen ' style={{backgroundColor:theme.bgcolor,color:theme.fontcolor,borderColor:theme.fontcolor}}>

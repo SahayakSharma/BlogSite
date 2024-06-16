@@ -21,7 +21,7 @@ const Taskbar = () => {
         const auth=Authentication.getInstance()
         auth.signout().then((res)=>{
             if(res.error) console.log(res.error.message)
-            else router.push('/signin')
+            else router.replace('/')
         })
     }
 
