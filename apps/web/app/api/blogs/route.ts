@@ -59,10 +59,10 @@ export const DELETE = async (req: Request) => {
 export const PUT = async (req: Request, res: Response) => {
     console.log('updatepost')
     const a=headers()
-    const toget=a.get('postid')
+    const postid=a.get('postid')
     const toupdate=a.get('toupdate')
     const b=await req.json()
-    const postid=parseInt(toget)
+    
     const { viewcounter,likecounter } = b;
     const post = await prisma.posts.update({
         where: {

@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { RiLoader5Line } from "react-icons/ri";
 import { BiLike } from "react-icons/bi";
 import { BiSolidLike } from "react-icons/bi";
+import { parse } from 'path';
 
 const page = () => {
   const router=useRouter()
@@ -16,22 +17,24 @@ const page = () => {
     const [liked,setliked]=useState(false)
     const [post,setpost]=useState([])
     const a=params.get('post')
-    const b=parseInt(a)
+    
     
     const handlelike=()=>{
         if(!liked){
             setliked(true)
+            let like=parseInt(post.likecounter)+1
+            
             async function incrementlike(){
               const response=await fetch('/api/blogs',{
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json',
                   'toupdate':'like',
-                  'postid':b
+                  'postid':a
                   
                 },
                 body:JSON.stringify({
-                  likecounter:post.likecounter+1
+                  likecounter:like
   
                 })
               })
@@ -51,7 +54,7 @@ const page = () => {
             headers: {
               'Content-Type': 'application/json',
               'toupdate':'like',
-              'postid':b
+              'postid':a
               
             },
             body:JSON.stringify({
@@ -75,7 +78,7 @@ const page = () => {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
-                'blogid':b
+                'blogid':a
               },
             })
             if(response.ok){
@@ -88,7 +91,7 @@ const page = () => {
                   headers: {
                     'Content-Type': 'application/json',
                     'toupdate':'view',
-                    'postid':b
+                    'postid':a
                     
                   },
                   body:JSON.stringify({

@@ -7,12 +7,9 @@ const prisma = new PrismaClient()
 export const GET = async (req: Request, res: Response) => {
     const a=headers()
     const blogid=a.get('blogid')
-    const id=parseInt(blogid)
-    
-    
         const post = await prisma.posts.findUnique({
             where:{
-                id:id
+                id:blogid
             }
         })
         return Response.json(post)
