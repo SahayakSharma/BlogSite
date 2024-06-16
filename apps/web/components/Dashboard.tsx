@@ -2,11 +2,9 @@
 "use client"
 import React, { useEffect,useState } from 'react'
 import { useAuth } from '../context/authContext'
-import { set } from 'firebase/database'
 import { MdDeleteForever } from "react-icons/md";
 import { useTheme } from '../context/themeContext';
 import { SlBasket } from "react-icons/sl";
-import { BiSolidLike } from "react-icons/bi";
 const Dashboard = () => {
  const {theme}=useTheme()
   const {user}=useAuth()
