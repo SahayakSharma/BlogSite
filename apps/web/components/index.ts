@@ -6,4 +6,12 @@ import Popular from "./Popular";
 import Feedback from "./Feedback";
 import Navbar from "./Navbar";
 
-export { Dashboard, Navbar ,YourBlogs, Taskbar, CreateNewBlog, Popular, Feedback};
+export {
+  Dashboard,
+  Navbar,
+  YourBlogs,
+  Taskbar,
+  CreateNewBlog,
+  Popular,
+  Feedback,
+};
