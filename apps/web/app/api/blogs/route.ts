@@ -1,4 +1,3 @@
-
 import { PrismaClient } from "@prisma/client";
 import { headers } from "next/headers";
 const prisma = new PrismaClient();
@@ -36,7 +35,6 @@ export const POST = async (req: Request) => {
 };
 
 export const DELETE = async (req: Request) => {
-
   const a = await req.json();
   const { id } = a;
   const post = await prisma.posts.delete({

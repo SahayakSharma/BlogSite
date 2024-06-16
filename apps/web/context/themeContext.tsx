@@ -19,18 +19,17 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [theme, setTheme] = useState(() => {
-    try{
-        const storedTheme = localStorage.getItem("themeforblog");
+    try {
+      const storedTheme = localStorage.getItem("themeforblog");
 
-    return storedTheme
-      ? JSON.parse(storedTheme)
-      : {
-          bgcolor: "hsl(0deg 0% 3.92%)",
-          fontcolor: "#ffffff",
-          shadow: "0.2px 0.2px #ffffff",
-        };
-    }
-    catch(e){}
+      return storedTheme
+        ? JSON.parse(storedTheme)
+        : {
+            bgcolor: "hsl(0deg 0% 3.92%)",
+            fontcolor: "#ffffff",
+            shadow: "0.2px 0.2px #ffffff",
+          };
+    } catch (e) {}
   });
 
   return (

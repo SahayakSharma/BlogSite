@@ -30,7 +30,7 @@ const page = () => {
   return !user ? (
     <div
       className="w-full h-screen pt-[200px]"
-      style={{ backgroundColor: theme?theme.bgcolor:'' }}
+      style={{ backgroundColor: theme ? theme.bgcolor : "" }}
     >
       <RiLoader5Line className="w-[30px] h-[30px]  animate-spin mx-auto" />
     </div>
@@ -38,9 +38,9 @@ const page = () => {
     <div
       className="w-full h-screen "
       style={{
-        backgroundColor: theme?theme.bgcolor:'',
-        color: theme?theme.fontcolor:'',
-        borderColor: theme?theme.fontcolor:'',
+        backgroundColor: theme ? theme.bgcolor : "",
+        color: theme ? theme.fontcolor : "",
+        borderColor: theme ? theme.fontcolor : "",
       }}
     >
       <Navbar />

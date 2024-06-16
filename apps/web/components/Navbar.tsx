@@ -44,9 +44,9 @@ const Navbar = () => {
     <div
       className="w-full px-[20px] h-[70px] flex justify-between text-white items-center"
       style={{
-        backgroundColor: theme?theme.bgcolor:'',
-        color: theme?theme.fontcolor:'',
-        boxShadow: theme?theme.shadow:'',
+        backgroundColor: theme ? theme.bgcolor : "",
+        color: theme ? theme.fontcolor : "",
+        boxShadow: theme ? theme.shadow : "",
         userSelect: "none",
       }}
     >
@@ -60,8 +60,11 @@ const Navbar = () => {
           <p
             className="rounded-md p-[10px] cursor-pointer"
             style={{
-              backgroundColor:
-              theme?theme.bgcolor === "hsl(0deg 0% 3.92%)" ? "#1b1b1b" : "#e0e0e0":'',
+              backgroundColor: theme
+                ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
+                  ? "#1b1b1b"
+                  : "#e0e0e0"
+                : "",
             }}
             onClick={() => router.replace("/dashboard")}
           >

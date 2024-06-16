@@ -17,7 +17,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       if (user) {
         setUser(user);
       } else {
-        setUser(()=>(null as any)as User);
+        setUser(() => null as any as User);
       }
     });
     return unsubscribe;

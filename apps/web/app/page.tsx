@@ -27,9 +27,11 @@ export default function Home() {
     getposts();
   }, []);
 
-  
   return (
-    <div className="w-full h-screen" style={{ backgroundColor: theme?theme.bgcolor:'' }}>
+    <div
+      className="w-full h-screen"
+      style={{ backgroundColor: theme ? theme.bgcolor : "" }}
+    >
       <Navbar />
       {blogs.map((blog: any) => {
         return (

@@ -16,7 +16,6 @@ const page = () => {
   const [loader, setloader] = useState(true);
   const { user } = useAuth();
 
-    
   const handlesignin = () => {
     const auth = Authentication.getInstance();
     auth.signInWithGoogle().then((res) => {
@@ -40,19 +39,22 @@ const page = () => {
   return loader ? (
     <div
       className="w-full h-screen pt-[200px]"
-      style={{ backgroundColor:theme? theme.bgcolor:'' }}
+      style={{ backgroundColor: theme ? theme.bgcolor : "" }}
     >
       <RiLoader5Line className="w-[30px] h-[30px]  animate-spin mx-auto" />
     </div>
   ) : (
     <div
       className="w-full h-screen flex justify-center items-center"
-      style={{ backgroundColor:theme? theme.bgcolor:'', color: theme?theme.fontcolor:'' }}
+      style={{
+        backgroundColor: theme ? theme.bgcolor : "",
+        color: theme ? theme.fontcolor : "",
+      }}
     >
       <div className="w-[350px] h-[400px] flex flex-col justify-between items-center py-[20px]">
         <p
           className="text-center font-bold text-[25px] px-[20px]"
-          style={{ color: theme?theme.fontcolor:'' }}
+          style={{ color: theme ? theme.fontcolor : "" }}
         >
           We Are Preparing Something Great For You !
         </p>
