@@ -1,0 +1,22 @@
+{
+    "builds": [
+        {
+            "src": "/apps/web",
+            "name": "web-build",
+            "steps": [
+                {
+                    "name": "install",
+                    "run": "npm install"
+                },
+                {
+                    "name": "prisma-generate",
+                    "run": "npx prisma generate"
+                },
+                {
+                    "name": "build",
+                    "run": "npm run build"
+                }
+            ]
+        }
+    ]
+}
