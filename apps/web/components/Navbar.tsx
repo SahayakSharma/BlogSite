@@ -44,9 +44,9 @@ const Navbar = () => {
     <div
       className="w-full px-[20px] h-[70px] flex justify-between text-white items-center"
       style={{
-        backgroundColor: theme ? theme.bgcolor : "",
-        color: theme ? theme.fontcolor : "",
-        boxShadow: theme ? theme.shadow : "",
+        backgroundColor: theme ? theme.bgcolor : 'white',
+        color: theme ? theme.fontcolor : "black",
+        boxShadow: theme ? theme.shadow : "0.2px 0.2px hsl(0deg 0% 3.92%)",
         userSelect: "none",
       }}
     >
@@ -64,7 +64,7 @@ const Navbar = () => {
                 ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
                   ? "#1b1b1b"
                   : "#e0e0e0"
-                : "",
+                : "white",
             }}
             onClick={() => router.replace("/dashboard")}
           >
