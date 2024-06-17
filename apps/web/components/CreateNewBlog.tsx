@@ -64,7 +64,7 @@ const CreateNewBlog = () => {
       <div className="w-[100%] h-[70px] flex justify-end items-center">
         <button
           className="w-[120px] h-[50px] border-2 font-bold text-[20px] rounded-md"
-          style={{ borderColor: theme.fontcolor }}
+          style={{ borderColor: theme?theme.fontcolor:'black' }}
           onClick={handlepublish}
         >
           Publish

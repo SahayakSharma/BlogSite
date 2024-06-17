@@ -18,7 +18,7 @@ const BlogPost = ({ title, content, author, createdAt, id }: any) => {
       className="w-[80%] h-[200px] mx-auto p-[20px] my-[30px] rounded-md"
       style={{
         boxShadow: "0px 0.2px 0px 0.2px #77777780",
-        color: theme ? theme.fontcolor : "",
+        color: theme ? theme.fontcolor : "black",
         userSelect: "none",
       }}
     >

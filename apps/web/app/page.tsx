@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div
       className="w-full h-screen"
-      style={{ backgroundColor: theme ? theme.bgcolor : "" }}
+      style={{ backgroundColor: theme ? theme.bgcolor : "white" }}
     >
       <Navbar />
       {blogs.map((blog: any) => {
