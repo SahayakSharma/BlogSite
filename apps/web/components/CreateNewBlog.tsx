@@ -42,8 +42,8 @@ const CreateNewBlog = () => {
         style={{
           boxShadow:
             theme.bgcolor === "hsl(0deg 0% 3.92%)"
-              ? "0px 0.2px white"
-              : "0px 0.2px black",
+              ? '0px 0.2px white'
+              : '0px 0.2px black',
         }}
         value={newpost.title}
         onChange={(e) =>

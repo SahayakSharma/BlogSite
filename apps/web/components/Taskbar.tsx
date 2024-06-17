@@ -36,8 +36,8 @@ const Taskbar = () => {
             backgroundColor:
               active === "Dashboard"
                 ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? "#1b1b1b"
-                  : "#e0e0e0"
+                  ?'#1b1b1b'
+                  : '#e0e0e0'
                 : "",
             userSelect: "none",
           }}
@@ -56,8 +56,8 @@ const Taskbar = () => {
             backgroundColor:
               active === "Your Blogs"
                 ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? "#1b1b1b"
-                  : "#e0e0e0"
+                  ?'#1b1b1b'
+                  : '#e0e0e0'
                 : "",
             userSelect: "none",
           }}
@@ -76,8 +76,8 @@ const Taskbar = () => {
             backgroundColor:
               active === "New Blog"
                 ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? "#1b1b1b"
-                  : "#e0e0e0"
+                  ? '#1b1b1b'
+                  : '#e0e0e0'
                 : "",
             userSelect: "none",
           }}
@@ -96,8 +96,8 @@ const Taskbar = () => {
             backgroundColor:
               active === "Popular"
                 ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? "#1b1b1b"
-                  : "#e0e0e0"
+                  ? '#1b1b1b'
+                  : '#e0e0e0'
                 : "",
             userSelect: "none",
           }}
@@ -116,8 +116,8 @@ const Taskbar = () => {
             backgroundColor:
               active === "Feedback"
                 ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? "#1b1b1b"
-                  : "#e0e0e0"
+                  ? '#1b1b1b'
+                  : '#e0e0e0'
                 : "",
             userSelect: "none",
           }}
