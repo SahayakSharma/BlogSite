@@ -109,8 +109,8 @@ const page = () => {
     <div
       className="w-full h-screen py-[200px] "
       style={{
-        backgroundColor: theme ? theme.bgcolor : "",
-        color: theme ? theme.fontcolor : "",
+        backgroundColor: '#2b2b2b',
+        color: 'white',
       }}
     >
       <RiLoader5Line className="w-[30px] h-[30px] animate-spin mx-auto" />
@@ -119,13 +119,13 @@ const page = () => {
     <div
       className="w-[100%] h-screen overflow-auto p-[100px]"
       style={{
-        backgroundColor: theme ? theme.bgcolor : "",
-        color: theme ? theme.fontcolor : "",
+        backgroundColor: '#2b2b2b',
+        color: 'white',
       }}
     >
       <div
         className="w-[60%] mx-auto p-[20px]"
-        style={{ boxShadow: "0px 0.2px 0px 0.2px #77777780" }}
+        style={{ boxShadow:"0.2px 0.2px #464646", }}
       >
         <p className="text-[10px]">{post.author}</p>
         <p className="text-[45px] font-bold py-[10px]">
@@ -149,7 +149,7 @@ const page = () => {
         <button
           className="w-[150px] h-[50px] border-2 rounded-md text-[13px]"
           onClick={() => router.push("/")}
-          style={{ borderColor: theme ? theme.fontcolor : "" }}
+          style={{ borderColor: 'white' }}
         >
           Back to Home
         </button>

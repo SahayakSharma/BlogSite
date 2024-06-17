@@ -74,41 +74,41 @@ const Dashboard = () => {
         <div className="mt-[50px]">
           <div
             className="w-[100%] h-[40px] flex items-center"
-            style={{ borderColor: theme?theme.fontcolor:'black' }}
+            style={{ borderColor: '#464646' }}
           >
             <div
               className="w-[5%] h-[100%] border-r-[1px]  font-bold flex items-center justify-center"
-              style={{ borderColor: theme?theme.fontcolor:'black' }}
+              style={{  borderColor: '#464646'}}
             >
               No.
             </div>
             <div
               className="w-[60%] h-[100%] border-r-[1px]  font-bold flex items-center justify-center"
-              style={{ borderColor: theme?theme.fontcolor:'black' }}
+              style={{  borderColor: '#464646' }}
             >
               Title
             </div>
             <div
               className="w-[10%] h-[100%] border-r-[1px]  font-bold flex items-center justify-center"
-              style={{ borderColor: theme?theme.fontcolor:'black' }}
+              style={{  borderColor: '#464646' }}
             >
               Views
             </div>
             <div
               className="w-[10%] h-[100%] border-r-[1px]  font-bold flex items-center justify-center"
-              style={{ borderColor: theme?theme.fontcolor:'black' }}
+              style={{ borderColor: '#464646' }}
             >
               Likes
             </div>
             <div
               className="w-[10%] h-[100%] border-r-[1px]  font-bold flex items-center justify-center"
-              style={{ borderColor: theme?theme.fontcolor:'black' }}
+              style={{  borderColor: '#464646' }}
             >
               CreatedOn
             </div>
             <div
               className="w-[5%] h-[100%]"
-              style={{ borderColor: theme?theme.fontcolor:'black' }}
+              style={{  borderColor: '#464646'}}
             ></div>
           </div>
           {userposts.map((post: any) => {
@@ -117,17 +117,17 @@ const Dashboard = () => {
               <div
                 key={post.id}
                 className="w-[100%] h-[60px] flex items-center border-t-[1px]"
-                style={{ borderColor: theme?theme.fontcolor:'black' }}
+                style={{  borderColor: '#464646' }}
               >
                 <div
                   className="w-[5%] h-[100%] border-r-[1px] px-[10px] items-center flex text-[10px]"
-                  style={{ borderColor: theme?theme.fontcolor:'black' }}
+                  style={{  borderColor: '#464646'}}
                 >
                   <h1>{number}</h1>
                 </div>
                 <div
                   className="w-[60%] h-[100%] border-r-[1px] px-[20px] items-center flex text-[13px] cursor-pointer"
-                  style={{ borderColor: theme?theme.fontcolor:'black' }}
+                  style={{ borderColor: '#464646' }}
                 >
                   <p>
                     {post.title.length > 80
@@ -137,19 +137,19 @@ const Dashboard = () => {
                 </div>
                 <div
                   className="w-[10%] h-[100%] border-r-[1px] px-[20px] items-center justify-center flex text-[10px]"
-                  style={{ borderColor: theme?theme.fontcolor:'black' }}
+                  style={{ borderColor: '#464646' }}
                 >
                   {post.viewcounter}
                 </div>
                 <div
                   className="w-[10%] h-[100%] border-r-[1px] px-[20px] items-center justify-center flex text-[10px]"
-                  style={{ borderColor: theme?theme.fontcolor:'black' }}
+                  style={{ borderColor: '#464646' }}
                 >
                   {post.likecounter}
                 </div>
                 <div
                   className="w-[10%] h-[100%] border-r-[1px] px-[20px] items-center justify-center flex text-[10px]"
-                  style={{ borderColor: theme?theme.fontcolor:'black' }}
+                  style={{  borderColor: '#464646'}}
                 >
                   {new Date(post.createdAt).toLocaleDateString()}
                 </div>

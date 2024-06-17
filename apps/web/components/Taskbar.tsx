@@ -27,7 +27,7 @@ const Taskbar = () => {
   return (
     <div
       className="w-[22%] h-[100%] p-[30px]"
-      style={{ boxShadow: theme?theme.shadow:'0.2px 0.2px hsl(0deg 0% 3.92%)' }}
+      style={{ boxShadow:"0.2px 0.2px #464646", }}
     >
       <ul className="flex flex-col">
         <li
@@ -35,9 +35,7 @@ const Taskbar = () => {
           style={{
             backgroundColor:
               active === "Dashboard"
-                ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ?'#1b1b1b'
-                  : '#e0e0e0'
+                ? '#313131'
                 : "",
             userSelect: "none",
           }}
@@ -55,9 +53,7 @@ const Taskbar = () => {
           style={{
             backgroundColor:
               active === "Your Blogs"
-                ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ?'#1b1b1b'
-                  : '#e0e0e0'
+                ? '#313131'
                 : "",
             userSelect: "none",
           }}
@@ -75,9 +71,7 @@ const Taskbar = () => {
           style={{
             backgroundColor:
               active === "New Blog"
-                ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? '#1b1b1b'
-                  : '#e0e0e0'
+                ? '#313131'
                 : "",
             userSelect: "none",
           }}
@@ -95,9 +89,7 @@ const Taskbar = () => {
           style={{
             backgroundColor:
               active === "Popular"
-                ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? '#1b1b1b'
-                  : '#e0e0e0'
+                ? '#313131'
                 : "",
             userSelect: "none",
           }}
@@ -115,9 +107,7 @@ const Taskbar = () => {
           style={{
             backgroundColor:
               active === "Feedback"
-                ? theme.bgcolor === "hsl(0deg 0% 3.92%)"
-                  ? '#1b1b1b'
-                  : '#e0e0e0'
+                ? '#313131'
                 : "",
             userSelect: "none",
           }}

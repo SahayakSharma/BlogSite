@@ -40,10 +40,7 @@ const CreateNewBlog = () => {
         placeholder="Title Of The Blog"
         className="w-[100%] h-[50px] my-[20px]  px-[20px]  bg-inherit outline-none"
         style={{
-          boxShadow:
-            theme.bgcolor === "hsl(0deg 0% 3.92%)"
-              ? '0px 0.2px white'
-              : '0px 0.2px black',
+          boxShadow:"0.2px 0.2px #464646",
         }}
         value={newpost.title}
         onChange={(e) =>
@@ -64,7 +61,7 @@ const CreateNewBlog = () => {
       <div className="w-[100%] h-[70px] flex justify-end items-center">
         <button
           className="w-[120px] h-[50px] border-2 font-bold text-[20px] rounded-md"
-          style={{ borderColor: theme?theme.fontcolor:'black' }}
+          style={{ borderColor: 'white' }}
           onClick={handlepublish}
         >
           Publish
