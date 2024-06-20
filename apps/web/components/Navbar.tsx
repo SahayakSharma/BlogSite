@@ -46,7 +46,7 @@ const Navbar = () => {
       style={{
         backgroundColor: '#2b2b2b',
         color: 'white',
-        boxShadow:"0.2px 0.2px #464646",
+        boxShadow:"0.2px 0.2px 8px #121212",
         userSelect: "none",
       }}
     >

@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 import BlogPost from "../components/BlogPost";
+import { RiLoader5Line } from "react-icons/ri";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
-  const { theme } = useTheme();
+  const [loader,setloader]=useState(true)
 
   useEffect(() => {
     async function getposts() {
@@ -22,12 +23,18 @@ export default function Home() {
       if (response.ok) {
         const data = await response.json();
         setBlogs(data);
+        setloader(false)
       }
     }
     getposts();
   }, []);
 
   return (
+    loader?(
+      <>
+        <RiLoader5Line className="w-[30px] h-[30px] mt-[50px]  animate-spin mx-auto" />
+      </>
+    ):(
     <div
       className="w-full h-screen"
       style={{backgroundColor: '#2b2b2b' }}
@@ -45,6 +52,6 @@ export default function Home() {
           />
         );
       })}
-    </div>
+    </div>)
   );
 }

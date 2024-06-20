@@ -2,13 +2,23 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/authContext";
 import { MdDeleteForever } from "react-icons/md";
-import { useTheme } from "../context/themeContext";
 import { SlBasket } from "react-icons/sl";
+import { RiLoader5Line } from "react-icons/ri";
+import { useRouter } from "next/navigation";
 const Dashboard = () => {
-  const { theme } = useTheme();
+  const router=useRouter()
   const { user } = useAuth();
   const [userposts, setUserposts] = useState([]);
+  const [totalviews,settotalviews]=useState(0)
+  const [totallikes,settotallikes]=useState(0)
+  const [totalblogspublished,settotalblogspublished]=useState(0)
+  const [loader,setloader]=useState(true)
   let number = 0;
+
+  const handleredirecttoblog = (title:string,id:string) => {
+    const encodedText = encodeURIComponent(title);
+    router.push(`/${encodedText}/blogpost?post=${id}`);
+  };
 
   const handlepostdelete = async (id: any) => {
     console.log("ek bar chala");
@@ -36,6 +46,12 @@ const Dashboard = () => {
       if (response.ok) {
         const data = await response.json();
         setUserposts(data);
+        data.map((data:any)=>{
+          settotalviews(totalviews+data.viewcounter)
+          settotallikes(totallikes+data.likecounter)
+          settotalblogspublished(totalblogspublished+1)
+        })
+        setloader(false)
       }
     }
     getposts();
@@ -60,8 +76,9 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="w-[100%] h-[200px] pt-[50px]">
-        <p className="text-[15px] py-[10px]">Total Blogs Published : 0</p>
-        <p className="text-[15px] py-[10px]">Total Views Received : 0</p>
+        <p className="text-[15px] py-[10px]">Total Blogs Published : {totalblogspublished}</p>
+        <p className="text-[15px] py-[10px]">Total Views Received : {totalviews}</p>
+        <p className="text-[15px] py-[10px]">Total Likes : {totallikes}</p>
       </div>
       {userposts.length === 0 ? (
         <>
@@ -71,7 +88,12 @@ const Dashboard = () => {
           </p>
         </>
       ) : (
-        <div className="mt-[50px]">
+        loader?(
+          <>
+          <RiLoader5Line className="w-[30px] h-[30px] mt-[50px]  animate-spin mx-auto" />
+          </>
+        ):
+        (<div className="mt-[50px]">
           <div
             className="w-[100%] h-[40px] flex items-center"
             style={{ borderColor: '#464646' }}
@@ -112,6 +134,7 @@ const Dashboard = () => {
             ></div>
           </div>
           {userposts.map((post: any) => {
+            // settotalviews(totalviews+post.viewcounter)
             number = number + 1;
             return (
               <div
@@ -129,7 +152,7 @@ const Dashboard = () => {
                   className="w-[60%] h-[100%] border-r-[1px] px-[20px] items-center flex text-[13px] cursor-pointer"
                   style={{ borderColor: '#464646' }}
                 >
-                  <p>
+                  <p onClick={()=>handleredirecttoblog(post.title,post.id)}>
                     {post.title.length > 80
                       ? post.title.substring(0, 80) + "..."
                       : post.title}
@@ -162,7 +185,7 @@ const Dashboard = () => {
               </div>
             );
           })}
-        </div>
+        </div>)
       )}
     </div>
   );

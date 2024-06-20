@@ -34,7 +34,7 @@ const CreateNewBlog = () => {
     }
   };
   return (
-    <div className="w-[100%] h-[100%] p-[50px] flex flex-col text-[15px]">
+    <div className="w-[100%] h-[100%] overflow-auto p-[50px] flex flex-col text-[15px]">
       <input
         type="text"
         placeholder="Title Of The Blog"

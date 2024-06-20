@@ -24,7 +24,7 @@ const YourBlogs = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen overflow-auto p-[50px]">
+    <div className="w-[100%] h-[100%] overflow-auto p-[50px]">
       {userposts.map((blog: any) => {
         return (
           <BlogPost

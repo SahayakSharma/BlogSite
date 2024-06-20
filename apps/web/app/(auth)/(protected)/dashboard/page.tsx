@@ -44,7 +44,7 @@ const page = () => {
       }}
     >
       <Navbar />
-      <div className="w-[100%] h-[100%] flex">
+      <div className="w-[100%] h-[91%] flex">
         <Taskbar />
         {(() => {
           switch (active) {

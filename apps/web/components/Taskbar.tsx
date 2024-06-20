@@ -27,7 +27,7 @@ const Taskbar = () => {
   return (
     <div
       className="w-[22%] h-[100%] p-[30px]"
-      style={{ boxShadow:"0.2px 0.2px #464646", }}
+      style={{ boxShadow:"0.2px 0.2px 8px #121212", }}
     >
       <ul className="flex flex-col">
         <li

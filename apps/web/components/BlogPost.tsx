@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 const BlogPost = ({ title, content, author, createdAt, id }: any) => {
   const router = useRouter();
   const formattedCreatedAt = format(new Date(createdAt), "HH:mm dd-MM-yyyy ");
-  const { theme } = useTheme();
 
   const handleredirecttoblog = () => {
     const encodedText = encodeURIComponent(title);
@@ -15,9 +14,9 @@ const BlogPost = ({ title, content, author, createdAt, id }: any) => {
 
   return (
     <div
-      className="w-[80%] h-[200px] mx-auto p-[20px] my-[30px] rounded-sm"
+      className="w-[80%] h-[200px] mx-auto  p-[20px]  my-[30px] rounded-sm"
       style={{
-        boxShadow:"0.2px 0.2px #464646",
+        boxShadow:"0.2px 0.2px 4px #121212",
         color: 'white',
         userSelect: "none",
       }}
